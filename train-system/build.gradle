@@ -1,7 +1,13 @@
+plugins {     id "org.sonarqube" version "2.2"   }
+
 dependencies {
   compile project(':train-controller')
   compile project(':train-sensor')
   compile project(':train-user')
   
   compile group: 'junit', name: 'junit', version: '4.12'
+  
+  
 }
+
+

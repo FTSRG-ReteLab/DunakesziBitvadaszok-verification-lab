@@ -7,5 +7,7 @@ public interface TrainSensor {
 	void overrideSpeedLimit(int speedLimit);
 	
 	void setReferenceSpeed();
+	
+	void switchFinishFlag();
 
 }

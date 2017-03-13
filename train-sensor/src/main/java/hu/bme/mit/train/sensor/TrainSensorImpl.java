@@ -9,6 +9,7 @@ public class TrainSensorImpl implements TrainSensor {
 	private TrainController controller;
 	private TrainUser user;
 	private int speedLimit = 5;
+	private boolean finished=false;
 
 	public TrainSensorImpl(TrainController controller, TrainUser user) {
 		this.controller = controller;
@@ -26,19 +27,27 @@ public class TrainSensorImpl implements TrainSensor {
 		controller.setSpeedLimit(speedLimit);
 	}
 	
+	@Override
 	public void setReferenceSpeed(){
-		while(true){
-			if(user.getJoystickPosition()!=0){
-				controller.setJoystickPosition(user.getJoystickPosition());
-				controller.followSpeed();
-			}
+		while(!finished){
 			try {
+				if(user.getJoystickPosition()!=0){
+					controller.setJoystickPosition(user.getJoystickPosition());
+					controller.followSpeed();
+				}
+			
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				System.err.println("Thread sleep error!");
 			}
 		}
+	}
+	
+	@Override
+	public void switchFinishFlag(){
+		finished = !finished;
 	}
 
 }
