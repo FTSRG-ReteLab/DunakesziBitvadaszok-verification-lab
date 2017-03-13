@@ -26,7 +26,7 @@ public class TrainSensorTest {
 
     
     @Test
-    public void Alert_SpeedLimitLessThanZero(){
+    public void alert_SpeedLimitLessThanZero(){
     	sensor.overrideSpeedLimit(-1);
     	
     	when(user.getAlarmState()).thenReturn(true);
@@ -37,7 +37,7 @@ public class TrainSensorTest {
     }
     
     @Test
-    public void Alert_SpeedLimitMoreThan500(){
+    public void alert_SpeedLimitMoreThan500(){
     	sensor.overrideSpeedLimit(501);
     	
     	when(user.getAlarmState()).thenReturn(true);
@@ -49,7 +49,7 @@ public class TrainSensorTest {
     }
     
     @Test
-    public void NoAlert_EverythingIsFine(){
+    public void noAlert_EverythingIsFine(){
     	sensor.overrideSpeedLimit(250);
     	
     	when(user.getAlarmState()).thenReturn(false);
@@ -60,7 +60,7 @@ public class TrainSensorTest {
     }
     
     @Test
-    public void Alert_SpeedLimitLessThanHalfReference(){
+    public void alert_SpeedLimitLessThanHalfReference(){
     	sensor.overrideSpeedLimit(150);
     	
     	when(user.getJoystickPosition()).thenReturn(150);
