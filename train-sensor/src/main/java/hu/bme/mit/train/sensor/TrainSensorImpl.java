@@ -25,5 +25,20 @@ public class TrainSensorImpl implements TrainSensor {
 		this.speedLimit = speedLimit;
 		controller.setSpeedLimit(speedLimit);
 	}
+	
+	public void setReferenceSpeed(){
+		while(true){
+			if(user.getJoystickPosition()!=0){
+				controller.setJoystickPosition(user.getJoystickPosition());
+				controller.followSpeed();
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 
 }
