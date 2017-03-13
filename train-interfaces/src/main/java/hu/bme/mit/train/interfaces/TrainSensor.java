@@ -1,6 +1,8 @@
 package hu.bme.mit.train.interfaces;
 
 public interface TrainSensor {
+	
+	boolean getAlarm();
 
 	int getSpeedLimit();
 
@@ -9,5 +11,7 @@ public interface TrainSensor {
 	void setReferenceSpeed();
 	
 	void switchFinishFlag();
+	
+	public void alarmSpeedLimit();
 
 }
